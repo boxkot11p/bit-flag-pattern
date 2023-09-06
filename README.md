@@ -1,0 +1,1 @@
+# bit-flag-pattern
