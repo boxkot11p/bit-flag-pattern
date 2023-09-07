@@ -32,7 +32,7 @@ func Test_Sample(t *testing.T) {
 			data: &userData{
 				userID: userID, 
 				name: "sample-name",
-				entranceFlag: 0b001,
+				entranceFlag: sample.MergeFlag([]sample.EntranceFlag{sample.EntranceFlag_NORMAL}),
 			},
 			reqFlag: sample.EntranceFlag_NORMAL,
 			wantRes: true,
@@ -41,7 +41,10 @@ func Test_Sample(t *testing.T) {
 			data: &userData{
 				userID: userID, 
 				name: "sample-name",
-				entranceFlag: 0b101,
+				entranceFlag: sample.MergeFlag([]sample.EntranceFlag{
+					sample.EntranceFlag_NORMAL,
+					sample.EntranceFlag_PREMIUM,
+				}),
 			},
 			reqFlag: sample.EntranceFlag_NORMAL,
 			wantRes: true,
@@ -50,7 +53,10 @@ func Test_Sample(t *testing.T) {
 			data: &userData{
 				userID: userID, 
 				name: "sample-name",
-				entranceFlag: 0b101,
+				entranceFlag: sample.MergeFlag([]sample.EntranceFlag{
+					sample.EntranceFlag_NORMAL,
+					sample.EntranceFlag_PREMIUM,
+				}),
 			},
 			reqFlag: sample.EntranceFlag_PREMIUM,
 			wantRes: true,
@@ -59,7 +65,10 @@ func Test_Sample(t *testing.T) {
 			data: &userData{
 				userID: userID, 
 				name: "sample-name",
-				entranceFlag: 0b101,
+				entranceFlag: sample.MergeFlag([]sample.EntranceFlag{
+					sample.EntranceFlag_NORMAL,
+					sample.EntranceFlag_PREMIUM,
+				}),
 			},
 			reqFlag: sample.EntranceFlag_SPECIAL,
 			wantRes: false,
